@@ -94,27 +94,42 @@
           <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 
             <form method="POST">
-              <?= form_submit('ingresar', 'Iniciar Sesion' ['class' => 'form'])?>
+              <?= form_open('validar_credenciales',['id' => 'formExample13', 'class' => 'form-control form-control-lg', 'name' => 'name'])?>
               <div class="section-title">
                 <h2>Iniciar Sesión</h2>
               </div>
-              <!-- Email input -->
-              <?= form_submit('ingresar', 'Iniciar Sesion' ['class' => 'form'])
+
+
+
+              <div class="form-outline mb-4">
               <?php
                 $data = [
                   'name' => 'email_usuario',
-                  'id'
+                  'id' => 'email_usuario',
+                  'type' => 'email',
+                  'class' => 'form-control form-control-lg',
+                  'placeholder' => 'hola@dominio.com',
+                  'required' => true
                 ];
-                echo from_input($data);
+                echo form_input($data);
               ?>
-              <div class="form-outline mb-4">
-                <input type="email" name="email" id="form1Example13" class="form-control form-control-lg" />
+
                 <label class="form-label" for="form1Example13">Email address</label>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
+              <?php
+                $data = [
+                  'name' => 'password',
+                  'id' => 'password',
+                  'type' => 'password',
+                  'class' => 'form-control form-control-lg',
+                  'required' => true
+                ];
+                echo form_input($data);
+              ?>
+
                 <label class="form-label" for="form1Example23">Password</label>
               </div>
 
@@ -124,9 +139,10 @@
               <!-- Submit button -->
               <div class="d-flex justify-content-around align-items-center mb-4">
                 <!-- <button type="submit" class="btn btn-primary btn-lg btn-block align-items-center">Iniciar Sesión</button> -->
-                <input type="submit" class="btn btn-primary btn-lg btn-block align-items-center" value="Iniciar Sesión">
+              <?= form_submit('ingresar', 'Iniciar Sesion', ['class' =>"btn btn-primary btn-lg btn-block align-items-center" ])?>
               </div>
 
+              <?= form_close(); ?>
 
               <div class="d-flex justify-content-around align-items-center mb-4">
               </div>
